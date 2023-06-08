@@ -6,7 +6,7 @@
 #    2) The number of charakters to delete from the file name. In above example
 #        the number is 6 
 # Example of calling this script:
-# python test1.py "C:\Users\msass\Documents\Peex2023\testjson" 6
+# python shortenFileName.py "C:\Users\msass\Documents\Peex2023\testjson" 6
 
 import os, sys
 import glob
@@ -15,7 +15,7 @@ import glob
 wd=sys.argv[1]
 
 # print working directory to just double check if it is the intended folder
-print(wd)
+#print(wd)
 
 # Desired slicing should be added as second paramater 
 dl=-int(sys.argv[2])
@@ -34,8 +34,9 @@ for file in glob.glob("*.json"):
         try:
             os.rename(file, file_after)
         except OSError as e:
-            #print(e)
+            print(e)
             print(f'{file_before} can\'t be renamed')
+            #print(f'{file_before} can\'t be renamed')
         else:
             print(f'Renamed {file_before} to {file_after}')
     else:
